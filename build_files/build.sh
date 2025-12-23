@@ -19,6 +19,12 @@ dnf5 install -y tmux
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
+chmod +x /ctx/1password.sh && \
+  ONEPASSWORD_RELEASE_CHANNEL=beta \
+  GID_ONEPASSWORD=1500 \
+  GID_ONEPASSWORDCLI=1600 \
+  /ctx/1password.sh
+
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
